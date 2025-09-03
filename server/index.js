@@ -14,12 +14,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:3000", // frontend (change to deployed frontend URL later)
-    credentials: true,               // allow cookies
+    origin: "http://localhost:3000", // Change this to your frontend URL after deploy
+    credentials: true,
   })
 );
 
-// 👇 Add this root route
+// 👇 Root route (for testing in browser)
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
@@ -31,11 +31,14 @@ app.get("/api/protected", requireAuth, (req, res) => {
   res.json({ message: "Welcome, you are authenticated!", user: req.user });
 });
 
-// DB connect
+// DB connect + server start
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB connected");
-    app.listen(5000, () => console.log("Server running on http://localhost:5000"));
+
+    // 👇 Use process.env.PORT for Render
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   })
   .catch((err) => console.error("Mongo error", err));
