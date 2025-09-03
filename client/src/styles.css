@@ -1,0 +1,14 @@
+body{font-family:Arial,Helvetica,sans-serif;margin:20px}
+.center{display:flex;align-items:center;justify-content:center;height:80vh}
+.card{padding:20px;border:1px solid #ddd;border-radius:8px;width:320px}
+.container{max-width:1000px;margin:0 auto}
+.chapter{border:1px solid #eee;padding:12px;margin:12px 0;border-radius:8px}
+.topic{padding:8px 12px;margin-left:6px}
+.problem{display:flex;justify-content:space-between;align-items:center;padding:8px;border-top:1px dashed #f0f0f0}
+.chip{font-size:12px;padding:4px 8px;border-radius:12px}
+.difficulty-easy{background:#E6F9EA;color:#0D6E1A}
+.difficulty-medium{background:#FFF7E6;color:#A66D00}
+.difficulty-tough{background:#FDECEA;color:#A50000}
+.links a{margin-right:8px;font-size:13px}
+.progress-bar{height:10px;background:#f0f0f0;border-radius:6px;overflow:hidden;margin-top:6px}
+.progress-fill{height:10px;background:linear-gradient(90deg,#60a5fa,#34d399)}
