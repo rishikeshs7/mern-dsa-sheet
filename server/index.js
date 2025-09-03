@@ -14,10 +14,15 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:3000", // frontend
+    origin: "http://localhost:3000", // frontend (change to deployed frontend URL later)
     credentials: true,               // allow cookies
   })
 );
+
+// 👇 Add this root route
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 
 // Routes
 app.use("/api/auth", authRoutes);
